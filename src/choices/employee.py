@@ -13,7 +13,9 @@ def employee_choices_main(emp_id):
     # Choice 1: Selecting to see all sales data for recorded period
     if chosen_option == const.emp_choices[0]:
         total_sales = transac_df[transac_df[const.emp_id] == int(emp_id)]
-        total_sales.to_excel("../output_files/total_sales.xlsx", index=False)
+        total_sales.to_excel(
+            f"../output_files/emp_{emp_id}total_sales.xlsx", index=False
+        )
         print(
             "Your sales data has been printed into the total_sales file in the output_folder"
         )
@@ -41,4 +43,10 @@ def employee_choices_main(emp_id):
         print(results_df)
     # Choice 5: Getting total compensation for the year
     if chosen_option == const.emp_choices[4]:
-        payslip.get_payslip(emp_id, transac_df)
+        payslip_df = payslip.get_payslip(emp_id, transac_df)
+        payslip_df.to_excel(
+            f"../output_files/employee_{emp_id}_payslip.xlsx", index=True
+        )
+        print(
+            "Your payslip has been printed into the total_sales file in the output_folder"
+        )

@@ -19,10 +19,10 @@ def get_payslip(emp_id, transac_df):
             "total": quarter_monthlies + quarter_warranties,
         }
         all_quarters_results.append(quarter_result)
-        setup_payslip_df(all_quarters_results)
+        total_spiff = spiff.get_spiff(emp_id, transac_df)
+        payslip = setup_payslip_df(all_quarters_results, total_spiff["payout"])
 
-    print(quarter_result)
-    return quarter_result
+    return payslip
 
 
 def get_quarter_monthlies_total(quarter, emp_id, transac_df):
@@ -40,7 +40,7 @@ def get_quarter_monthlies_total(quarter, emp_id, transac_df):
     return total
 
 
-def setup_payslip_df(all_quarters_results):
+def setup_payslip_df(all_quarters_results, total_spiff):
     final_df = pd.DataFrame([], columns=const.payslip_df_quarters)
     for i in range(len(all_quarters_results)):
         column_to_update = all_quarters_results[i]["quarter"] - 1
@@ -55,8 +55,12 @@ def setup_payslip_df(all_quarters_results):
             columns=[const.payslip_df_quarters[column_to_update]],
         )
         final_df[const.payslip_df_quarters[column_to_update]] = active_df
-    # print(active_df)
     final_df.rename(index={0: "monthlies"}, inplace=True)
     final_df.rename(index={1: "warranties"}, inplace=True)
     final_df.rename(index={2: "total"}, inplace=True)
-    print(final_df)
+    final_df["spiff"] = np.nan
+    final_df["spiff"]["total"] = total_spiff
+    final_df["Year"] = final_df[list(final_df.columns)].sum(axis=1)
+    const.clearConsole()
+
+    return final_df

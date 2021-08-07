@@ -1,3 +1,6 @@
+import os
+
+
 # Date logic
 months = [
     "January",
@@ -61,3 +64,13 @@ def get_date_info(month, type="name"):
         date_info = {"quarter": quarter, "name": month_name, "number": month}
 
     return date_info
+
+
+def clearConsole():
+    command = "clear"
+    if os.name in ("nt", "dos"):  # If Machine is running on Windows, use cls
+        command = "cls"
+    os.system(command)
+
+
+clearConsole()
