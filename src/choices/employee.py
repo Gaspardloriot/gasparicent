@@ -7,7 +7,7 @@ import enquiries
 transac_df = pd.read_excel(const.transactions_file_path)
 
 
-def employee_choices_main(emp_id):
+def employee_choices_main(emp_id, employees_df):
 
     chosen_option = enquiries.choose("What do you wish to access? ", const.emp_choices)
     # Choice 1: Selecting to see all sales data for recorded period
@@ -50,3 +50,6 @@ def employee_choices_main(emp_id):
         print(
             "Your payslip has been printed into the total_sales file in the output_folder"
         )
+        # Choice 5: Getting total compensation for the year
+    if chosen_option == const.emp_choices[5]:
+        print(employees_df[employees_df[const.emp_id] == int(emp_id)])

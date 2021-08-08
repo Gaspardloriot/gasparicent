@@ -20,7 +20,7 @@ def get_payslip(emp_id, transac_df):
         }
         all_quarters_results.append(quarter_result)
         total_spiff = spiff.get_spiff(emp_id, transac_df)
-        payslip = setup_payslip_df(all_quarters_results, total_spiff["payout"])
+    payslip = setup_payslip_df(all_quarters_results, total_spiff["payout"])
 
     return payslip
 
@@ -47,9 +47,9 @@ def setup_payslip_df(all_quarters_results, total_spiff):
         active_df = pd.DataFrame(
             np.array(
                 [
-                    all_quarters_results[0]["monthlies"],
-                    all_quarters_results[0]["warranties"],
-                    all_quarters_results[0]["total"],
+                    all_quarters_results[i]["monthlies"],
+                    all_quarters_results[i]["warranties"],
+                    all_quarters_results[i]["total"],
                 ]
             ),
             columns=[const.payslip_df_quarters[column_to_update]],

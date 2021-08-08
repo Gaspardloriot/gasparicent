@@ -25,6 +25,9 @@ def get_available_months(transac_df):
     available_months_names = []
     available_months_nums = list(transac_df[const.date].dt.month.unique())
     available_months_nums = [x for x in available_months_nums if str(x) != "nan"]
+    available_months_nums_map = map(int, available_months_nums)
+    available_months_nums = list(available_months_nums_map)
+    available_months_nums.sort()
     for num in available_months_nums:
         name = const.get_date_info(int(num), "num")["name"]
         available_months_names.append(name)

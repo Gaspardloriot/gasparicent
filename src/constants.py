@@ -26,6 +26,8 @@ sales = "Total Sale"
 warranty = "Warranty? (Y/N)"
 qty = "Qty"
 product = "Product"
+job = "Job Title"
+first_name = "First Name"
 
 
 # Warranty rates
