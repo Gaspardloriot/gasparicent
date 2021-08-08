@@ -28,6 +28,7 @@ qty = "Qty"
 product = "Product"
 job = "Job Title"
 first_name = "First Name"
+manager_col = "Manager"
 
 
 # Warranty rates
@@ -51,8 +52,17 @@ emp_choices = [
     "Total Compensation (Payslip)",
     "My Info",
 ]
+# Manager choices
+manager_choices = [
+    "Sales of my team",
+    "Team salaries",
+    "My compensation",
+    "My team",
+    "My info",
+]
 
 payslip_df_quarters = ["Q1", "Q2", "Q3", "Q4"]
+team_performance_columns = ["rep_id", "Q1", "Q2", "Q3", "Q4", "spiff", "Year"]
 
 
 def get_date_info(month, type="name"):

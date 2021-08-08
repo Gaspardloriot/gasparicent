@@ -50,6 +50,6 @@ def employee_choices_main(emp_id, employees_df):
         print(
             "Your payslip has been printed into the total_sales file in the output_folder"
         )
-        # Choice 5: Getting total compensation for the year
+        # Choice 5: Getting Employee information
     if chosen_option == const.emp_choices[5]:
         print(employees_df[employees_df[const.emp_id] == int(emp_id)])

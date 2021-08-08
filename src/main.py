@@ -2,8 +2,8 @@ import pandas as pd
 import enquiries
 import time
 import sys
-from choices import employee
 import constants as const
+from choices import employee, manager
 
 
 def end_of_step():
@@ -27,6 +27,8 @@ def greet_user(name):
 def run_choices():
     if level == const.rep:
         employee.employee_choices_main(emp_id, employees_df)
+    if level == const.manager:
+        manager.manager_choices_main(emp_id, employees_df)
     end_of_step()
 
 

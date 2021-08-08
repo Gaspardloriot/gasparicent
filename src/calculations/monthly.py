@@ -3,7 +3,6 @@ import constants as const
 
 
 def monthly_compensation(emp_id, month, transac_df):
-    # monthly_salary=transac_df[const.sales][(transac_df[const.date].dt.month == 4) & (transac_df[const.emp_id].isin(possible_emps))].sum()
     monthly_sales = get_monthly_sales(emp_id, month, transac_df)
     rate = get_monthly_rate(monthly_sales)
     monthly_salary = round(monthly_sales * rate, 1)
