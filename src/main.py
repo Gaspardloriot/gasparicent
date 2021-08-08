@@ -46,6 +46,3 @@ emp_name = employees_df[const.first_name][
 ].values[0]
 greet_user(emp_name)
 run_choices()
-
-
-possible_emps = [1111111, 2222222]
