@@ -56,10 +56,14 @@ emp_choices = [
 manager_choices = [
     "Sales of my team",
     "Team salaries",
-    "My compensation",
+    "My compensation bonus",
     "My team",
     "My info",
 ]
+
+# Manager goals
+regional_quarterly = 4000
+OTE = 400
 
 payslip_df_quarters = ["Q1", "Q2", "Q3", "Q4"]
 team_performance_columns = ["rep_id", "Q1", "Q2", "Q3", "Q4", "spiff", "Year"]
